@@ -32,15 +32,15 @@
           <a href="#" class="login-btn">Log in</a>
           <a href="#" class="signup-btn">Sign up Free</a>
         </div>
-        <div class="mobile-menu-btn">
+        <a href="#mobile-menu" class="mobile-menu-btn" aria-label="Open menu">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </a>
       </nav>
-      
+
       <!-- Mobile Menu Drawer -->
-      <div class="mobile-menu">
+      <div id="mobile-menu" class="mobile-menu">
         <div class="mobile-menu-header">
           <div class="mobile-menu-logo">
             <img
@@ -49,7 +49,9 @@
               class="header-logo"
             />
           </div>
-          <button class="mobile-menu-close">&times;</button>
+          <a href="#" class="mobile-menu-close" aria-label="Close menu"
+            >&times;</a
+          >
         </div>
         <div class="mobile-menu-links">
           <a href="#home">Home</a>
@@ -62,7 +64,8 @@
           <a href="#" class="mobile-login-btn">Log in</a>
           <a href="#" class="mobile-signup-btn">Sign up Free</a>
         </div>
-      </nav>
+      </div>
+      <a href="#" class="mobile-menu-overlay" aria-hidden="true"></a>
     </header>
 
     <!-- Hero Section -->
@@ -90,17 +93,26 @@
           <div class="services-year">2025</div>
           <div class="services-description">
             <p>
-              At BioSynthesis, we're growing a greener, smarter future for agriculture.
-              With innovative tools and sustainable solutions, we help farmers boost yields,
-              cut waste, reduce costs, and protect the planet for the long term.
-              Together, we're cultivating healthier crops, stronger communities,
-              and a brighter tomorrow for everyone.
+              At BioSynthesis, we're growing a greener, smarter future for
+              agriculture. With innovative tools and sustainable solutions, we
+              help farmers boost yields, cut waste, reduce costs, and protect
+              the planet for the long term. Together, we're cultivating
+              healthier crops, stronger communities, and a brighter tomorrow for
+              everyone.
             </p>
           </div>
         </div>
 
         <div class="services-grid">
-          <div class="services-title">Get<br />Started Now <a href="#contact" class="services-title-btn" aria-label="Get Started">↗</a></div>
+          <div class="services-title">
+            Get<br />Started Now
+            <a
+              href="#contact"
+              class="services-title-btn"
+              aria-label="Get Started"
+              >↗</a
+            >
+          </div>
 
           <div class="service-card card-1 loading">
             <div class="service-image">
@@ -371,42 +383,5 @@
         <div class="footer-bottom">REAP TO GROW</div>
       </div>
     </footer>
-
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-      // Mobile menu functionality
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const mobileMenuClose = document.querySelector('.mobile-menu-close');
-      const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
-
-      // Open mobile menu
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-
-      // Close mobile menu
-      mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      });
-
-      // Close mobile menu when clicking on links
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = 'auto';
-        });
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = 'auto';
-        }
-      });
-    </script>
   </body>
 </html>

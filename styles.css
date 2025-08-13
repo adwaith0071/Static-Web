@@ -73,7 +73,8 @@ header {
   overflow-y: auto;
 }
 
-.mobile-menu.active {
+/* Open when targeted */
+#mobile-menu:target {
   right: 0;
 }
 
@@ -97,6 +98,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .mobile-menu-links {
@@ -1179,11 +1181,6 @@ a[href^="#"] {
   transform: translateY(0);
 }
 
-/* Remove custom cursor styles */
-* {
-  cursor: default;
-}
-
 button,
 .cta-button,
 .read-more,
@@ -1191,4 +1188,26 @@ button,
 .service-card,
 .hub-card {
   cursor: pointer;
+}
+
+/* Overlay for click-outside close */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1500;
+}
+
+/* Show overlay when menu is targeted */
+body:has(#mobile-menu:target) .mobile-menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Prevent body scroll when menu is open (browsers with :has support) */
+body:has(#mobile-menu:target) {
+  overflow: hidden;
 }
